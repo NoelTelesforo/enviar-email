@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Asignar eventos
-    
+
     inputEmail.addEventListener('input', validar);
     inputAsunto.addEventListener('input', validar);
     inputMensaje.addEventListener('input', validar);
@@ -27,5 +27,31 @@ document.addEventListener('DOMContentLoaded', function() {
     btnReset.addEventListener('click', function(e) {
         e.preventDefault();
         resetFormulario();
-    })
+    });
+
+    // Funciones
+    function enviarEmail(e) {
+        e.preventDefault();
+
+        spinner.classList.add('flex');
+        spinner.classList.remove('hidden');
+
+        setTimeout(() => {
+            spinner.classList.remove('flex');
+            spinner.classList.add('hidden');
+
+            resetFormulario();
+
+            // Crea una alerta
+            const alertaExito = document.createElement('P');
+            alertaExito.classList.add('bg-green-500', 'text-white', 'p-2', 'text-center', 'rounded-lg', 'mt-10', 'font-bold', 'text-sm', 'uppercase');
+            alertaExito.textContent = 'Mensaje enviado correctamente';
+
+            formulario.appendChild(alertaExito);
+
+            setTimeout(() => {
+                alertaExito.remove(); 
+            }, 3000);
+        }, 3000);
+    }
 });
