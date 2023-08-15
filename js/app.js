@@ -106,4 +106,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const resultado = regex.test(email);
         return resultado;
     }
+
+ 
+    function comprobarEmail() {
+        if(Object.values(email).includes('')) {
+            btnSubmit.classList.add('opacity-50');
+            btnSubmit.disabled = true;
+            return
+        } 
+        btnSubmit.classList.remove('opacity-50');
+        btnSubmit.disabled = false;
+    }
 });
