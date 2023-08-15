@@ -117,4 +117,15 @@ document.addEventListener('DOMContentLoaded', function() {
         btnSubmit.classList.remove('opacity-50');
         btnSubmit.disabled = false;
     }
+
+   
+    function resetFormulario() {
+        // reiniciar el objeto
+        email.email = '';
+        email.asunto = '';
+        email.mensaje = '';
+
+        formulario.reset();
+        comprobarEmail();
+    }
 });
