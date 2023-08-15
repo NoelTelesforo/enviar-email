@@ -54,4 +54,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 3000);
         }, 3000);
     }
+
+    function validar(e) {
+        if(e.target.value.trim() === '') {
+            mostrarAlerta(`El Campo ${e.target.id} es obligatorio`, e.target.parentElement);
+            email[e.target.name] = '';
+            comprobarEmail();
+            return;
+        }
+
+        if(e.target.id === 'email' && !validarEmail(e.target.value)) {
+            mostrarAlerta('El email no es válido', e.target.parentElement);
+            email[e.target.name] = '';
+            comprobarEmail();
+            return;
+        }
+
+        limpiarAlerta(e.target.parentElement);
+
+        // Asignar los valores
+        email[e.target.name] = e.target.value.trim().toLowerCase();
+
+        // Comprobar el objeto de email
+        comprobarEmail();
+    }
 });
