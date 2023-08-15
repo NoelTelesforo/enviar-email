@@ -78,4 +78,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Comprobar el objeto de email
         comprobarEmail();
     }
+
+    function mostrarAlerta(mensaje, referencia) {
+        limpiarAlerta(referencia);
+        
+        // Generar alerta en HTML
+        const error = document.createElement('P');
+        error.textContent = mensaje;
+        error.classList.add('bg-red-600', 'text-white', 'p-2', 'text-center');
+       
+        // Inyectar el error al formulario
+        referencia.appendChild(error);
+    }
 });
