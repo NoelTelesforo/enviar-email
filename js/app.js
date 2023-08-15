@@ -90,4 +90,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Inyectar el error al formulario
         referencia.appendChild(error);
     }
+
+  
+    function limpiarAlerta(referencia) {
+        // Comprueba si ya existe una alerta
+        const alerta = referencia.querySelector('.bg-red-600');
+        if(alerta) {
+            alerta.remove();
+        }
+    }
 });
